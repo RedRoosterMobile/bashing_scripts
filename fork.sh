@@ -50,10 +50,10 @@ try() {
     return $EXIT_CODE
 }
 echo_success() {
-    echo -n "    [  OK  ]";
+    echo -ne "\t\t[  OK  ]";
 }
 echo_failure() {
-    echo -n "     [ FAIL ]";
+    echo -ne "\t\t[ FAIL ]";
 }
 
 next() {
@@ -66,9 +66,9 @@ next() {
 
 
 # Example:
-step "Sleeping good"
-try echo "out" >/dev/null 2>&1
-next
 step "Sleeping bad"
-try cd notthere >/dev/null 2>&1
+try phing  >/dev/null 2>&1
+next
+step "Sleeping good"
+try cd / >/dev/null 2>&1
 next
